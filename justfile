@@ -21,6 +21,10 @@ docs:
     #!/bin/bash
     ./scripts/50_docs.sh
 
+versions:
+    #!/bin/bash
+    ./scripts/51_versions.sh
+
 hooks:
     #!/bin/bash
     ln -s -f ../../hooks/pre-commit .git/hooks/pre-commit

@@ -3,7 +3,9 @@
 # title: Update versions
 # ---
 
-# Update the 'latest' versions listed in various files.
+## Update the 'latest' versions listed in various files.
+
+# Use `just versions`.
 
 # ```shell
 echo '{}' > ./versions.json

@@ -6,7 +6,7 @@
 set -ex
 # -->
 
-# Try `make download` or `make`.
+# Try `just download` or `just all`.
 
 ## Prepare sysext location
 

@@ -1,9 +1,9 @@
 FROM mcr.microsoft.com/devcontainers/base:bookworm
 
-# Install fzf and squashfs-tools
+# Install fzf, squashfs-tools and rename
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y update \
-    && apt-get -y install fzf squashfs-tools
+    && apt-get -y install fzf squashfs-tools rename
 
 USER vscode
 # create ~/bin

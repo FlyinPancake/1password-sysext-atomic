@@ -1,0 +1,16 @@
+name: Build docs
+run-name: ${{ github.actor}} - ${{ github.run_number }} build docs
+on: [push]
+jobs:
+    docs:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: taiki-e/install-action@just
+            - run: |
+                just docs
+                git config user.name github-actions
+                git config user.email github-actions@github.com
+                git add docs
+                git commit -m "docs: build docs"
+                git push
