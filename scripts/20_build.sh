@@ -6,7 +6,7 @@
 set -ex
 # -->
 
-# Try `make build` or `make`.
+# Try `just build` or `just all`.
 
 # Ensure we have the files we'll need
 
@@ -141,8 +141,15 @@ sudo chmod g+s ${SYSTEXT_PATH}/usr/bin/op
 ## Configure systemd-sysext
 
 # ```shell
-VERSION_ID="$(grep -E '^VERSION_ID=' /etc/os-release | cut -d= -f2)"
-echo "ID=steamos" | sudo tee ${SYSTEXT_PATH}/usr/lib/extension-release.d/extension-release.${SYSEXT_PREFIX}
+# If ew set VERSION_ID use it, otherwise get it from /etc/os-release
+if [ -z "${VERSION_ID}" ]; then
+  VERSION_ID="$(grep -E '^VERSION_ID=' /etc/os-release | cut -d= -f2)"
+fi
+# If we set OS_RELEASE_ID use it, otherwise get it from /etc/os-release
+if [ -z "${OS_RELEASE_ID}" ]; then
+  OS_RELEASE_ID="$(grep -E '^ID=' /etc/os-release | cut -d= -f2)"
+fi
+echo "ID=${OS_RELEASE_ID}" | sudo tee ${SYSTEXT_PATH}/usr/lib/extension-release.d/extension-release.${SYSEXT_PREFIX}
 echo "VERSION_ID=${VERSION_ID}" | sudo tee -a ${SYSTEXT_PATH}/usr/lib/extension-release.d/extension-release.${SYSEXT_PREFIX}
 # ```
 

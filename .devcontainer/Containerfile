@@ -1,0 +1,19 @@
+FROM mcr.microsoft.com/devcontainers/base:bookworm
+
+# Install fzf and squashfs-tools
+RUN export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y update \
+    && apt-get -y install fzf squashfs-tools
+
+USER vscode
+# create ~/bin
+RUN mkdir -p ~/.local/bin
+
+# download and extract just to ~/bin/just
+RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ~/.local/bin
+
+# add `~/bin` to the paths that your shell searches for executables
+# this line should be added to your shells initialization file,
+# e.g. `~/.bashrc` or `~/.zshrc`
+RUN echo export PATH="$PATH:$HOME/.local/bin" | tee -a ~/.bashrc | tee -a ~/.zshrc
+ENV PATH="$PATH:$HOME/.local/bin"

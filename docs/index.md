@@ -2,11 +2,12 @@
 title: About
 ---
 
-## systemd system extension (`systemd-sysext`) for Steam Deck
+## systemd system extension (`systemd-sysext`) for [Fedora Atomic](https://fedoraproject.org/atomic-desktops/)
 
-> **Notice:** This is a work in progress. See [open issues](https://github.com/sebble/1password-sysext-steam-deck/issues). In particular https://github.com/sebble/1password-sysext-steam-deck/issues/11 (Firefox integration not great any more)
+> **Notice:** This is a work in progress. See [open issues](https://github.com/flyinpancake/1password-sysext-atomic/issues). 
+> In particular <https://github.com/sebble/1password-sysext-steam-deck/issues/11> (Firefox integration not great any more)
 
-This repository contains instructions to build a system extension for use on a Steam Deck.
+This repository contains instructions to build a system extension for use on Fedora's Atomic variants.
 A systemd system extension allows you to install software without modifying the read-only file system on `/usr`.
 
 Last tested with:
@@ -45,11 +46,13 @@ Or read through the source-code which has been written with in-line documentatio
 
 **Setting up SSH Agent**
 
-Add the following to your `~/.bashrc` if you want all SSH Agent connections to use 1Password.
+Add the following to your `~/.bashrc` (or `~/.zshrc`) if you want all SSH Agent connections to use 1Password.
 
 ```shell
 export SSH_AUTH_SOCK=~/.1password/agent.sock
 ```
+
+For fish shell use 
 
 ### F.A.Q.
 
