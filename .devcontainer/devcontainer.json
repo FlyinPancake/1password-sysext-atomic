@@ -10,11 +10,14 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"terminal.integrated.shell.linux": "/bin/zsh"
+				"terminal.integrated.shell.linux": "/bin/zsh",
+				"redhat.telemetry.enabled": false
 			},
 			"extensions": [
 				"skellock.just",
-				"timonwong.shellcheck"
+				"timonwong.shellcheck",
+				"GitHub.vscode-github-actions",
+				"redhat.vscode-yaml"
 			]
 		}
 	}
